@@ -65,6 +65,15 @@ these path names to the compact display names used in the paper.
   condition rather than a prose verdict.
 - ``ModelNamesS123.txt`` - long model name to display name.
 - `ParticleSpectrograph*.pdf` - the computed spectrograph for every model.
+- `DeconflictionRepair.m` and `DeconflictionRepair.py` - an audit and repair of
+  the third column of the catalogue. The survey's original pruning discarded a
+  condition whenever it implied any other, which is correct when one condition
+  is strictly stronger, but destroys BOTH when two are equivalent -- the normal
+  case when two special cases share a first branching. The column was therefore
+  systematically incomplete. The two scripts are independent implementations of
+  the same audit, one in the Wolfram Language and one in Python, and they agree;
+  `AllModelsS123.csv` here carries the corrected column, as does the published
+  article. Neither script writes anything unless `DECONFLICT_WRITE=1` is set.
 
 ### Note
 
